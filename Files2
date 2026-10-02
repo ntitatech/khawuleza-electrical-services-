@@ -1,0 +1,603 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khawuleza Electrical | Professional Cape Town Electricians</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#f5b301',
+                        brandYellowDark: '#d99b00',
+                        brandDark: '#0b0f19',
+                        brandCard: '#151c2c',
+                        brandBorder: '#232d42',
+                        brandGreen: '#25d366',
+                        brandGreenDark: '#1eae53'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(11, 15, 25, 0.45) 0%, rgba(11, 15, 25, 0.98) 100%), 
+                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        /* Custom scrollbar for sleeker look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232d42;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f5b301;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brandYellow selection:text-black">
+
+    <!-- Sticky Header Navigation -->
+    <header class="sticky top-0 z-50 bg-brandDark/90 backdrop-blur-md border-b border-brandBorder/60 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-lg bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow group-hover:bg-brandYellow group-hover:text-black transition-all duration-300">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block text-lg font-black tracking-tight text-white leading-none group-hover:text-brandYellow transition-colors">KHAWULEZA</span>
+                    <span class="block text-xs font-semibold tracking-widest text-brandYellow uppercase leading-tight">Electrical</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-brandYellow transition-colors">Home</a>
+                <a href="#about" class="hover:text-brandYellow transition-colors">About Us</a>
+                <a href="#services" class="hover:text-brandYellow transition-colors">Services</a>
+                <a href="#why-us" class="hover:text-brandYellow transition-colors">Why Choose Us</a>
+                <a href="#location" class="hover:text-brandYellow transition-colors">Hours & Location</a>
+            </nav>
+
+            <!-- Desktop CTA -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:0219819054" class="text-sm font-semibold text-gray-200 hover:text-brandYellow flex items-center gap-2 transition-colors">
+                    <svg class="w-4 h-4 text-brandYellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    021 981 9054
+                </a>
+                <a href="#quote" class="bg-brandYellow text-black px-5 py-2.5 rounded-md font-bold text-sm hover:bg-brandYellowDark transition-all shadow-md shadow-brandYellow/10">
+                    Request Quote ↗
+                </a>
+            </div>
+
+            <!-- Mobile 3-Line Hamburger Button -->
+            <button id="menuToggleBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-lg bg-brandCard border border-brandBorder text-gray-200 hover:text-brandYellow focus:outline-none" aria-label="Toggle Navigation Menu">
+                <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-brandCard/98 border-b border-brandBorder px-4 pt-4 pb-6 space-y-4 shadow-2xl transition-all">
+            <a href="#home" onclick="closeMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-brandYellow border-b border-gray-800">Home</a>
+            <a href="#about" onclick="closeMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-brandYellow border-b border-gray-800">About Us</a>
+            <a href="#services" onclick="closeMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-brandYellow border-b border-gray-800">Services</a>
+            <a href="#why-us" onclick="closeMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-brandYellow border-b border-gray-800">Why Choose Us</a>
+            <a href="#location" onclick="closeMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-brandYellow border-b border-gray-800">Hours & Location</a>
+            <div class="pt-2 flex flex-col gap-3">
+                <a href="#quote" onclick="closeMobileMenu()" class="w-full text-center bg-brandYellow text-black py-3 rounded-md font-bold text-sm hover:bg-brandYellowDark transition-all">
+                    Request a Quote ↗
+                </a>
+                <a href="tel:0219819054" class="w-full text-center border border-brandBorder text-gray-200 py-3 rounded-md font-semibold text-sm hover:bg-brandDark flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4 text-brandYellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Call 021 981 9054
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-[calc(100vh-80px)] flex items-center py-16 lg:py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl">
+                <!-- Location Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brandYellow/10 border border-brandYellow/30 text-brandYellow text-xs sm:text-sm font-bold tracking-widest uppercase mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brandYellow animate-pulse"></span>
+                    CAPE TOWN · WESTERN CAPE
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
+                    Powering a <br>
+                    <span class="text-brandYellow">better tomorrow.</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl font-normal">
+                    Professional electrical and solar solutions delivered with safe workmanship and dependable service across Cape Town and surrounds.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <a href="#quote" class="bg-brandYellow text-black font-extrabold text-base px-8 py-4 rounded-md hover:bg-brandYellowDark transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-brandYellow/20">
+                        Request a quote ↗
+                    </a>
+                    <a href="tel:0219819054" class="inline-flex items-center justify-center gap-2 text-white font-bold text-base px-6 py-4 hover:text-brandYellow underline decoration-2 underline-offset-8 transition-all">
+                        <svg class="w-5 h-5 text-brandYellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        Call 021 981 9054
+                    </a>
+                </div>
+
+                <!-- Rating & Verification Badge -->
+                <div class="mt-12 pt-8 border-t border-brandBorder/80 flex items-center gap-4">
+                    <div class="flex items-center text-brandYellow">
+                        <!-- 4.5 star visualization -->
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current opacity-50" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-sm text-gray-400 font-medium">
+                        <strong class="text-white">4.5 Rating</strong> on Google Maps · Brackenfell, Cape Town
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-brandDark border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-brandYellow text-xs font-bold tracking-widest uppercase">Trusted Local Experts</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Reliable Electrical Workmanship You Can Count On.
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        Based in Brackenfell, <strong class="text-white">Khawuleza Electrical</strong> provides comprehensive residential, commercial, and solar electrical installation services across Cape Town and the Western Cape.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Whether you require urgent fault finding, a distribution board upgrade, solar backup power installation, or formal Certificate of Compliance (CoC) inspections, our team ensures complete safety, legal compliance, and dependable execution every single time.
+                    </p>
+                    
+                    <!-- Feature Checklist -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <div class="flex items-center gap-2.5 text-sm font-semibold text-gray-200">
+                            <span class="w-5 h-5 rounded-full bg-brandYellow/20 text-brandYellow flex items-center justify-center text-xs">✓</span>
+                            Qualified & Certified Technicians
+                        </div>
+                        <div class="flex items-center gap-2.5 text-sm font-semibold text-gray-200">
+                            <span class="w-5 h-5 rounded-full bg-brandYellow/20 text-brandYellow flex items-center justify-center text-xs">✓</span>
+                            Safety First Standards
+                        </div>
+                        <div class="flex items-center gap-2.5 text-sm font-semibold text-gray-200">
+                            <span class="w-5 h-5 rounded-full bg-brandYellow/20 text-brandYellow flex items-center justify-center text-xs">✓</span>
+                            Brackenfell & Greater Cape Town
+                        </div>
+                        <div class="flex items-center gap-2.5 text-sm font-semibold text-gray-200">
+                            <span class="w-5 h-5 rounded-full bg-brandYellow/20 text-brandYellow flex items-center justify-center text-xs">✓</span>
+                            Prompt WhatsApp Turnaround
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Grid Box -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-brandCard border border-brandBorder p-6 rounded-xl text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-black text-brandYellow">100%</span>
+                        <span class="block text-sm font-medium text-gray-300">Safety Compliant</span>
+                    </div>
+                    <div class="bg-brandCard border border-brandBorder p-6 rounded-xl text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-black text-brandYellow">CoC</span>
+                        <span class="block text-sm font-medium text-gray-300">Certified Inspection</span>
+                    </div>
+                    <div class="bg-brandCard border border-brandBorder p-6 rounded-xl text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-black text-brandYellow">Fast</span>
+                        <span class="block text-sm font-medium text-gray-300">Quote Responses</span>
+                    </div>
+                    <div class="bg-brandCard border border-brandBorder p-6 rounded-xl text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-black text-brandYellow">Local</span>
+                        <span class="block text-sm font-medium text-gray-300">Cape Town Based</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-brandDark/50 border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brandYellow text-xs font-bold tracking-widest uppercase">What We Do</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">Our Electrical Services</h2>
+                <p class="text-gray-400 mt-3">From quick home repairs to solar inverter setups and commercial compliance.</p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-6 hover:border-brandYellow/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-lg bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow mb-5 group-hover:bg-brandYellow group-hover:text-black transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Electrical Repairs & Rewiring</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Complete residential and commercial rewiring, plug fixes, light switch repairs, and general electrical maintenance.</p>
+                    <a href="#quote" class="text-brandYellow text-sm font-semibold inline-flex items-center gap-1 hover:underline">Request Service →</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-6 hover:border-brandYellow/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-lg bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow mb-5 group-hover:bg-brandYellow group-hover:text-black transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Solar & Backup Inverters</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Protect your home or business from load shedding with professional inverter installations, battery backup, and solar panels.</p>
+                    <a href="#quote" class="text-brandYellow text-sm font-semibold inline-flex items-center gap-1 hover:underline">Request Service →</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-6 hover:border-brandYellow/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-lg bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow mb-5 group-hover:bg-brandYellow group-hover:text-black transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">CoC Inspections & Certificates</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Official Electrical Certificates of Compliance (CoC) for property sales, tenant handovers, and insurance requirements.</p>
+                    <a href="#quote" class="text-brandYellow text-sm font-semibold inline-flex items-center gap-1 hover:underline">Request Service →</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-6 hover:border-brandYellow/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-lg bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow mb-5 group-hover:bg-brandYellow group-hover:text-black transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">DB Board Upgrades & Tripping</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Diagnosis for earth leakage trips, main circuit breaker replacements, and complete distribution board modernization.</p>
+                    <a href="#quote" class="text-brandYellow text-sm font-semibold inline-flex items-center gap-1 hover:underline">Request Service →</a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-6 hover:border-brandYellow/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-lg bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow mb-5 group-hover:bg-brandYellow group-hover:text-black transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Lighting & Power Installations</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Indoor LED downlights, outdoor security lights, floodlighting, dedicated heavy-appliance power lines, and switches.</p>
+                    <a href="#quote" class="text-brandYellow text-sm font-semibold inline-flex items-center gap-1 hover:underline">Request Service →</a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-6 hover:border-brandYellow/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-lg bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow mb-5 group-hover:bg-brandYellow group-hover:text-black transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Commercial Maintenance</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Scheduled electrical maintenance and swift call-outs for shops, warehouses, offices, and industrial properties in Cape Town.</p>
+                    <a href="#quote" class="text-brandYellow text-sm font-semibold inline-flex items-center gap-1 hover:underline">Request Service →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 bg-brandDark border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brandYellow text-xs font-bold tracking-widest uppercase">Our Commitment</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">Why Choose Khawuleza Electrical</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-brandCard p-8 rounded-xl border border-brandBorder space-y-3">
+                    <div class="text-brandYellow text-2xl font-black">01.</div>
+                    <h3 class="text-xl font-bold text-white">Direct Communication</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Deal directly with dedicated local electricians. Quick responses via phone or WhatsApp mean no waiting on hold.</p>
+                </div>
+
+                <div class="bg-brandCard p-8 rounded-xl border border-brandBorder space-y-3">
+                    <div class="text-brandYellow text-2xl font-black">02.</div>
+                    <h3 class="text-xl font-bold text-white">Upfront & Honest Pricing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">No hidden surprises. We provide clear, pre-formatted quotes prior to beginning any installation or repair work.</p>
+                </div>
+
+                <div class="bg-brandCard p-8 rounded-xl border border-brandBorder space-y-3">
+                    <div class="text-brandYellow text-2xl font-black">03.</div>
+                    <h3 class="text-xl font-bold text-white">Safe Workmanship Guaranteed</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">All installations adhere to SANS standards and safety regulations, safeguarding your family and business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive WhatsApp Quote Form Section -->
+    <section id="quote" class="py-20 bg-brandDark/80 border-t border-brandBorder">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brandCard border border-brandBorder rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brandYellow/5 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="text-brandYellow text-xs font-bold tracking-widest uppercase">Fast Response</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-1">Request a Quote via WhatsApp</h2>
+                    <p class="text-gray-400 text-sm mt-2">Fill out your project details below. Clicking submit opens WhatsApp with a pre-formatted request directly to Khawuleza Electrical.</p>
+                </div>
+
+                <form onsubmit="handleQuoteSubmit(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" for="fullName">Your Full Name *</label>
+                            <input type="text" id="fullName" required placeholder="e.g. John Smith" class="w-full bg-brandDark border border-brandBorder rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brandYellow transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" for="phoneNum">Phone / WhatsApp Number *</label>
+                            <input type="tel" id="phoneNum" required placeholder="e.g. 082 123 4567" class="w-full bg-brandDark border border-brandBorder rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brandYellow transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" for="serviceType">Service Needed *</label>
+                            <select id="serviceType" required class="w-full bg-brandDark border border-brandBorder rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brandYellow transition-colors">
+                                <option value="General Electrical Repair">General Electrical Repair</option>
+                                <option value="Solar & Backup Inverter">Solar & Backup Inverter</option>
+                                <option value="CoC Inspection">CoC Certificate Inspection</option>
+                                <option value="DB Board Upgrade">DB Board Upgrade & Tripping</option>
+                                <option value="Lighting & Switches">Lighting & Appliance Wiring</option>
+                                <option value="Commercial Maintenance">Commercial Maintenance</option>
+                                <option value="Other / Emergency">Other Enquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" for="areaLocation">Location / Suburb</label>
+                            <input type="text" id="areaLocation" placeholder="e.g. Brackenfell / Bellville" class="w-full bg-brandDark border border-brandBorder rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brandYellow transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2" for="projectDetails">Details of the Work Needed *</label>
+                        <textarea id="projectDetails" rows="4" required placeholder="Describe what needs fixing or installing..." class="w-full bg-brandDark border border-brandBorder rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brandYellow transition-colors"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brandGreen hover:bg-brandGreenDark text-white font-extrabold py-4 px-6 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-brandGreen/20">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                        </svg>
+                        Send Pre-Formatted WhatsApp Message ↗
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours & Location Section -->
+    <section id="location" class="py-20 bg-brandDark border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Business Info Card -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="text-brandYellow text-xs font-bold tracking-widest uppercase">Physical Address</span>
+                        <h2 class="text-2xl font-bold text-white mt-1 mb-4">Visit / Contact Us</h2>
+                        
+                        <div class="space-y-4 text-gray-300 text-sm">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brandYellow shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <div>
+                                    <strong class="block text-white">Khawuleza Electrical</strong>
+                                    Unit B17 Brackenfell Business Park, Old Paarl Rd,<br>
+                                    Brackenfell, Cape Town, 7560
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 pt-2">
+                                <svg class="w-5 h-5 text-brandYellow shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                                <a href="tel:0219819054" class="text-white hover:text-brandYellow font-semibold">021 981 9054</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call Button Action -->
+                    <div class="mt-8 pt-6 border-t border-brandBorder">
+                        <a href="tel:0219819054" class="w-full bg-brandDark hover:bg-black border border-brandBorder text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+                            <svg class="w-4 h-4 text-brandYellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            Call Office Directly
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Operating Hours Card -->
+                <div class="bg-brandCard border border-brandBorder rounded-xl p-8">
+                    <span class="text-brandYellow text-xs font-bold tracking-widest uppercase">Opening Hours</span>
+                    <h2 class="text-2xl font-bold text-white mt-1 mb-6">Business Schedule</h2>
+
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center py-2.5 border-b border-brandBorder text-sm">
+                            <span class="text-gray-300 font-medium">Monday</span>
+                            <span class="text-white font-semibold">8:00 am – 5:00 pm</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2.5 border-b border-brandBorder text-sm">
+                            <span class="text-gray-300 font-medium">Tuesday</span>
+                            <span class="text-white font-semibold">8:00 am – 5:00 pm</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2.5 border-b border-brandBorder text-sm">
+                            <span class="text-gray-300 font-medium">Wednesday</span>
+                            <span class="text-white font-semibold">8:00 am – 5:00 pm</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2.5 border-b border-brandBorder text-sm">
+                            <span class="text-gray-300 font-medium">Thursday</span>
+                            <span class="text-white font-semibold">8:00 am – 5:00 pm</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2.5 border-b border-brandBorder text-sm">
+                            <span class="text-gray-300 font-medium">Friday</span>
+                            <span class="text-brandYellow font-semibold">8:00 am – 2:00 pm</span>
+                        </li>
+                        <li class="flex justify-between items-center py-2.5 text-sm">
+                            <span class="text-gray-400 font-medium">Saturday & Sunday</span>
+                            <span class="text-gray-500 font-semibold">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Floating WhatsApp Button -->
+    <a href="https://wa.me/27219819054?text=Hi%20Khawuleza%20Electrical,%20I%20would%20like%20to%20enquire%20about%20your%20services." 
+       target="_blank" 
+       rel="noopener"
+       class="fixed bottom-6 right-6 bg-brandGreen hover:bg-brandGreenDark text-white px-5 py-3.5 rounded-full font-bold text-sm flex items-center gap-2.5 shadow-2xl z-50 transition-all transform hover:scale-105"
+       aria-label="Instant WhatsApp Chat">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        </svg>
+        WhatsApp
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-brandBorder py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded bg-brandYellow/10 border border-brandYellow/30 flex items-center justify-center text-brandYellow">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <span class="font-extrabold tracking-tight text-white">Khawuleza Electrical</span>
+            </div>
+
+            <p class="text-xs text-gray-500 text-center">
+                &copy; <span id="year"></span> Khawuleza Electrical. Brackenfell, Cape Town. All rights reserved.
+            </p>
+
+            <div class="flex items-center gap-6 text-xs text-gray-400">
+                <a href="#home" class="hover:text-brandYellow transition-colors">Home</a>
+                <a href="#about" class="hover:text-brandYellow transition-colors">About</a>
+                <a href="#services" class="hover:text-brandYellow transition-colors">Services</a>
+                <a href="#quote" class="hover:text-brandYellow transition-colors">Quote</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Hamburger Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburgerIcon = document.getElementById('hamburgerIcon');
+            const closeIcon = document.getElementById('closeIcon');
+
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburgerIcon = document.getElementById('hamburgerIcon');
+            const closeIcon = document.getElementById('closeIcon');
+
+            menu.classList.add('hidden');
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        }
+
+        // Handle Quote Submission to WhatsApp
+        function handleQuoteSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNum').value.trim();
+            const service = document.getElementById('serviceType').value;
+            const location = document.getElementById('areaLocation').value.trim() || 'Not specified';
+            const details = document.getElementById('projectDetails').value.trim();
+
+            const targetPhoneNumber = "27219819054";
+
+            // Format message neatly for WhatsApp readability
+            const formattedMessage = 
+                `*NEW QUOTE REQUEST - KHAWULEZA ELECTRICAL*%0A%0A` +
+                `*Client Name:* ${encodeURIComponent(name)}%0A` +
+                `*Contact Number:* ${encodeURIComponent(phone)}%0A` +
+                `*Service Needed:* ${encodeURIComponent(service)}%0A` +
+                `*Location:* ${encodeURIComponent(location)}%0A%0A` +
+                `*Project Details:*%0A${encodeURIComponent(details)}`;
+
+            const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${formattedMessage}`;
+
+            // Redirect to WhatsApp
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+```
